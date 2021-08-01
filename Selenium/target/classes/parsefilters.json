@@ -1,0 +1,74 @@
+{
+  "com.digitalpebble.stormcrawler.parse.ParseFilters": [
+    {
+      "class": "com.digitalpebble.stormcrawler.parse.filter.XPathFilter",
+      "name": "XPathFilter",
+      "params": {
+        "canonical": "//*[@rel=\"canonical\"]/@href",
+        "parse.description": [
+            "//*[@name=\"description\"]/@content",
+            "//*[@name=\"Description\"]/@content"
+         ],
+        "parse.title": [
+            "//TITLE",
+            "//META[@name=\"title\"]/@content"
+
+         ],
+        "parse.keywords": "//META[@name=\"keywords\"]/@content",
+		"parse.descriptionEntreprise": [
+			 "//DIV[@class=\"col-md-8\"]/H6[1]/following-sibling::P[1]",
+			 "//DIV[@class=\"job-ad-company\"]/..",
+			 "//DIV[@class=\"the-content\"]/DIV[1]",
+			 "//DIV[@class=\"panel panel-default\"][1]/DIV[@class=\"panel-body\"]/P",
+			 "//DIV[@class=\"col-sm-6\"]//TD",
+			 "//ASIDE[@class=\"jod-Aside\"]/UL[following-sibling::P]/LI"	  
+		 ],
+		"parse.descriptionPoste": [
+			 "//DIV[@class=\"col-md-8\"]/H6[2]/following-sibling::P[1]",
+			 "//SPAN[@class=\"ad-ss-title\"][1]/following-sibling::P[following::DIV[@class=\"job-ad-separator\"]]",
+			 "//DIV[@class=\"the-content\"]/DIV[2]",
+			 "//DIV[@class=\"panel panel-default\"][2]/DIV[@class=\"panel-body\"]/P",
+			 "//DIV[@class=\"text-justify\"]/P | //DIV[@class=\"text-justify\"]/UL/LI",
+			 "//DIV[@class=\"well well-sm m-b-none\"]/P"
+		 ], 
+		"parse.profilRecherche": [
+			 "//DIV[@class=\"col-md-8\"]/H6[3]/following-sibling::P[1]",
+			 "//TABLE[@class=\"job-ad-criteria\"]",
+			 "//DIV[@class=\"the-content\"]/div[3] | //DIV[@class=\"the-content\"]/DIV[6] | //DIV[@class=\"the-content\"]/DIV[7]",
+			 "//DIV[@class=\"panel panel-default\"][1]/DIV[@class=\"panel-body\"]/P",
+			 "//DIV[@class=\"text-justify mb-4\"]/UL/LI/SPAN | //DIV[@class=\"text-justify mb-4\"]/P",
+			 "//DIV[@class=\"well well-sm\"]//STRONG"
+		 ],
+		"parse.all": [
+			 "//H3/following-sibling::P",
+			 "//DIV[@id=\"post_content_holder\"]",
+			 "//DIV[@id=\"offre-container\"]//DIV[@class=\"list-1\"]/UL/LI | //DIV[@id=\"offre-container\"]//DIV[@class=\"list-1\"]/OL/LI  | //DIV[@id=\"offre-container\"]//DIV[@class=\"list-1\"]/P",
+			 "//DIV[@class=\"jobs_list\"]//DIV[@class=\"result\"]//DIV[@class=\"employement_desc\"]",
+			 "//ASID[@class=\"jod-Aside\"]/following-sibling::SECTION//P | //ASIDE[@class=\"jod-Aside\"]/following-sibling::SECTION//LI"
+		 ]
+}
+    },
+    {
+      "class": "com.digitalpebble.stormcrawler.parse.filter.LinkParseFilter",
+      "name": "LinkParseFilter",
+      "params": {
+         "pattern": "//FRAME/@src"
+       }
+    },
+    {
+      "class": "com.digitalpebble.stormcrawler.parse.filter.DomainParseFilter",
+      "name": "DomainParseFilter",
+      "params": {
+        "key": "domain",
+        "byHost": false
+       }
+    },
+    {
+      "class": "com.digitalpebble.stormcrawler.parse.filter.CommaSeparatedToMultivaluedMetadata",
+      "name": "CommaSeparatedToMultivaluedMetadata",
+      "params": {
+        "keys": ["parse.keywords"]
+       }
+    }
+  ]
+}

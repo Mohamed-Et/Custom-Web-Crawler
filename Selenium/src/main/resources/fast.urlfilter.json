@@ -1,0 +1,78 @@
+[
+      {
+          "scope": "domain:stage.ma",
+          "patterns": [
+              "AllowPathQuery /offres|detail/",
+              "DenyPath .+"
+          ]
+      },
+      {
+          "scope": "domain:emploi.ma",
+          "patterns": [
+              "AllowPathQuery /(offre-emploi-maroc|recherche-jobs-maroc)/",
+              "DenyPath .+"
+          ]
+      },
+      {
+          "scope": "domain:dreamjob.ma",
+          "patterns": [
+              "AllowPathQuery /emploi|alwadifa|(fonction/emploi-public)/",
+              "DenyPath .+"
+          ]
+      },
+      {
+          "scope": "domain:m-job.ma",
+          "patterns": [
+              "AllowPathQuery /recherche|offres-emploi/",
+              "DenyPath .+"
+          ]
+      },
+      {
+          "scope": "domain:marocemploi.net",
+          "patterns": [
+              "AllowPathQuery /offre/",
+              "DenyPath .+"
+          ]
+      },
+      {
+          "scope": "domain:pitchforjob.com",
+          "patterns": [
+              "AllowPathQuery /offres-emploi|list-offre-emploi.php|offre-emploi/",
+              "DenyPath .+"
+          ]
+      },
+      {
+          "scope": "domain:mouhim.ma",
+          "patterns": [
+              "AllowPathQuery /projets|projet/",
+              "DenyPath .+"
+          ]
+      },
+      {
+          "scope": "domain:stagiaires.ma",
+          "patterns": [
+              "AllowPathQuery /offres-stages|offres-stages-maroc|offres-stages-morocco/",
+              "DenyPath .+"
+          ]
+      },
+      {
+          "scope": "domain:careersinmorocco.com",
+          "patterns": [
+              "AllowPathQuery /offres|rechercher|entreprise/",
+              "DenyPath .+"
+          ]
+      },
+      {
+          "scope": "domain:maroc-jobs.com",
+          "patterns": [
+              "AllowPathQuery /casablanca|rabat|marrakech|tout-le-maroc|mohammedia|kenitra|detail/",
+              "DenyPath .+"
+          ]
+      },
+      {
+          "scope": "metadata:key=value",
+          "patterns": [
+             "DenyPath .+"
+          ]
+      }
+]
